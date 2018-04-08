@@ -4,6 +4,7 @@ public class Infix extends Postfix {
     public static void main(String[] args) {
         System.out.println(evaluateInfix("0.5^0.5"));
     }
+
     /**
      * Calculates an infix mathematical expression using conversion to postfix.
      *
@@ -30,7 +31,7 @@ public class Infix extends Postfix {
     private static String infixToPostfix(String infixString) throws ExpressionException {
         LinkedList<String> operatorStack = new LinkedList<>();
         StringBuilder postfixString = new StringBuilder();
-        infixString = " "+infixString;
+        infixString = " " + infixString;
         infixString = infixString.replaceAll("([\\D])[-]([\\d]+[.]?[\\d]*)", " $1 ~$2 ").replaceAll("([-+*^/()])", " $1 ");
         String[] values = Pattern.compile("\\s+|\\t+").split(infixString.trim());
 

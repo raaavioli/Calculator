@@ -81,7 +81,7 @@ public class GUI extends Application {
         });
 
         EventHandler<MouseEvent> canvasZoomHandler = event -> {
-            if(zoomIn.isSelected()) {
+            if (zoomIn.isSelected()) {
                 String eventType = event.getEventType().toString();
                 switch (eventType) {
                     case "MOUSE_PRESSED":
@@ -92,15 +92,15 @@ public class GUI extends Application {
                         }
                     case "MOUSE_RELEASED":
                         if (event.getButton() == MouseButton.PRIMARY) {
-                            if(canvas.xMousePress != 0 && canvas.yMousePress != 0){
+                            if (canvas.xMousePress != 0 && canvas.yMousePress != 0) {
                                 double xStart = canvas.round(canvas.xPixelToCoord(Math.min(canvas.xMousePress, event.getX())));
                                 double xEnd = canvas.round(canvas.xPixelToCoord(Math.max(canvas.xMousePress, event.getX())));
                                 double yStart = canvas.round(canvas.yPixelToCoord(Math.max(canvas.yMousePress, event.getY())));
                                 double yEnd = canvas.round(canvas.yPixelToCoord(Math.min(canvas.yMousePress, event.getY())));
-                                double xGrade = canvas.round(Math.abs((xEnd-xStart)/10));
-                                double yGrade = canvas.round(Math.abs((yEnd-yStart)/10));
+                                double xGrade = canvas.round(Math.abs((xEnd - xStart) / 10));
+                                double yGrade = canvas.round(Math.abs((yEnd - yStart) / 10));
 
-                                if(xStart != 0 && xEnd != 0 && yStart != 0 && yEnd != 0 && xGrade != 0 && yGrade != 0) {
+                                if (xStart != 0 && xEnd != 0 && yStart != 0 && yEnd != 0 && xGrade != 0 && yGrade != 0) {
                                     lowerX.setText(String.valueOf(xStart));
                                     upperX.setText(String.valueOf(xEnd));
                                     lowerY.setText(String.valueOf(yStart));
@@ -135,7 +135,7 @@ public class GUI extends Application {
         primaryStage.show();
     }
 
-    private void setTextFieldTexts(ResizableCoordinateSystem canvas){
+    private void setTextFieldTexts(ResizableCoordinateSystem canvas) {
         lowerX.setText(String.valueOf(canvas.getxStart()));
         upperX.setText(String.valueOf(canvas.getxEnd()));
         lowerY.setText(String.valueOf(canvas.getyStart()));
